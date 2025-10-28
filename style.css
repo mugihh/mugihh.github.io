@@ -1,0 +1,165 @@
+/* 1. Define your color palette using CSS Variables */
+:root {
+  --bg-color: #fafafa; /* NEW: Pure White */
+  --text-color: #333333; /* NEW: Dark Gray (for text) */
+  --primary-color: #000000; /* NEW: Pure Black (for headings/buttons) */
+  --primary-hover: #555555; /* NEW: Medium-Dark Gray (for hover) */
+  --secondary-text: #777777; /* NEW: Medium Gray (for sub-info) */
+  --border-color: #dddddd; /* NEW: Light Gray (for borders) */
+  --white: #ffffff; /* White */
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB",
+    "Microsoft JhengHei", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto; /* Horizontally centers the content */
+  padding: 40px 20px; /* Top/bottom and left/right padding */
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--secondary-text);
+}
+
+.email-contact {
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
+}
+
+.email-contact p {
+  color: var(--text-color);
+  margin: 0;
+}
+
+.button-container {
+  margin-bottom: 3rem;
+}
+
+a.button {
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  color: var(--white); /* White text */
+  background-color: var(--primary-color); /* Black bg */
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  transition: all 0.3s;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+a.button:hover {
+  background-color: var(--primary-hover); /* Gray bg */
+  border-color: var(--primary-hover);
+  color: var(--white);
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Style for the icons inside the buttons */
+a.button .fas,
+a.button .fab {
+  margin-right: 8px; /* Adds space between icon and text */
+}
+
+/* Styles for the new content sections */
+.content-section {
+  text-align: left; /* Left-align text for better readability */
+  margin-top: 3rem;
+}
+
+.content-section h2 {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.content-section h3 {
+  font-size: 1.25rem;
+  color: var(--text-color); /* Use main text color for H3 */
+  margin-bottom: 0.5rem;
+}
+
+/* Style for the job subheading (Company | Date) */
+.job-subheading {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--secondary-text); /* Use secondary color */
+  margin-top: -6px; /* Pulls it up slightly under the H3 */
+  margin-bottom: 1rem;
+}
+
+/* Style for the skill categories */
+.content-section h4 {
+  font-size: 1.15rem;
+  color: var(--text-color); /* Use main text color */
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.content-section p,
+.content-section ul {
+  font-size: 1rem;
+  color: var(--text-color); /* Main text color for readability */
+  margin-bottom: 1.5rem;
+}
+
+.content-section ul {
+  list-style-position: inside;
+  padding-left: 0;
+}
+
+.cat-photos-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.cat-photo-item {
+  flex: 1 1 30%;
+  max-width: 32%;
+  height: auto;
+
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 600px) {
+  .cat-photos-grid {
+    justify-content: center;
+  }
+
+  .cat-photo-item {
+    flex: 1 1 90%;
+    max-width: 90%;
+  }
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  color: var(--secondary-text);
+}
