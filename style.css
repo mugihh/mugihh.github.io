@@ -163,3 +163,14 @@ footer {
   font-size: 0.9rem;
   color: var(--secondary-text);
 }
+
+.lab-link {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: all 0.3s;
+}
+
+.lab-link:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
