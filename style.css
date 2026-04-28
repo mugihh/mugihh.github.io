@@ -1,131 +1,246 @@
-/* 1. Define your color palette using CSS Variables */
 :root {
-  --bg-color: #fafafa; /* NEW: Pure White */
-  --text-color: #333333; /* NEW: Dark Gray (for text) */
-  --primary-color: #000000; /* NEW: Pure Black (for headings/buttons) */
-  --primary-hover: #555555; /* NEW: Medium-Dark Gray (for hover) */
-  --secondary-text: #777777; /* NEW: Medium Gray (for sub-info) */
-  --border-color: #dddddd; /* NEW: Light Gray (for borders) */
-  --white: #ffffff; /* White */
+  --bg-color: #fafafa;
+  --text-color: #2d2d2d;
+  --primary-color: #090909;
+  --primary-hover: #3a3a3a;
+  --secondary-text: #737373;
+  --muted-text: #9a9a9a;
+  --border-color: #d8d8d8;
+  --soft-border: #eaeaea;
+  --white: #ffffff;
+  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB",
+    "Microsoft JhengHei", sans-serif;
+  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB",
-    "Microsoft JhengHei", sans-serif;
+  font-family: var(--font-sans);
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
+  text-rendering: optimizeLegibility;
 }
 
 .container {
-  max-width: 700px;
-  margin: 0 auto; /* Horizontally centers the content */
-  padding: 40px 20px; /* Top/bottom and left/right padding */
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 68px 22px 44px;
   text-align: center;
+  animation: page-enter 650ms ease-out both;
+}
+
+.hero {
+  min-height: min(620px, 78vh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  color: var(--muted-text);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
 }
 
 h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: clamp(3.15rem, 11.5vw, 8.2rem);
+  font-weight: 400;
+  line-height: 0.96;
+  margin: 0 auto 1.3rem;
   color: var(--primary-color);
+  max-width: 780px;
+  white-space: nowrap;
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  color: var(--primary-color);
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+  margin: 0 auto 0.75rem;
+}
+
+.hero-summary {
   color: var(--secondary-text);
+  font-size: 1.03rem;
+  margin: 0 auto 0.85rem;
+  max-width: 560px;
 }
 
 .email-contact {
-  margin-top: -0.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.2rem;
 }
 
 .email-contact p {
-  color: var(--text-color);
+  color: var(--secondary-text);
   margin: 0;
+  font-size: 0.98rem;
 }
 
 .button-container {
-  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
 }
 
 a.button {
-  display: inline-block;
-  margin: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
   padding: 0.8rem 1.5rem;
   text-decoration: none;
-  color: var(--white); /* White text */
-  background-color: var(--primary-color); /* Black bg */
   border: 2px solid var(--primary-color);
   border-radius: 8px;
-  transition: all 0.3s;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
+}
+
+a.button-primary {
+  color: var(--white);
+  background-color: var(--primary-color);
+}
+
+a.button-secondary {
+  color: var(--white);
+  background-color: var(--primary-color);
 }
 
 a.button:hover {
-  background-color: var(--primary-hover); /* Gray bg */
+  background-color: var(--primary-hover);
   border-color: var(--primary-hover);
   color: var(--white);
-  transform: translateY(-2px); /* Slight lift effect on hover */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
-/* Style for the icons inside the buttons */
+a:focus-visible {
+  outline: 3px solid rgba(0, 0, 0, 0.28);
+  outline-offset: 4px;
+}
+
 a.button .fas,
 a.button .fab {
-  margin-right: 8px; /* Adds space between icon and text */
+  margin-right: 8px;
 }
 
-/* Styles for the new content sections */
 .content-section {
-  text-align: left; /* Left-align text for better readability */
-  margin-top: 3rem;
+  text-align: left;
+  margin-top: 5.2rem;
 }
 
 .content-section h2 {
-  font-size: 1.8rem;
+  align-items: baseline;
   color: var(--primary-color);
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 10px;
-  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 400;
+  gap: 0.9rem;
+  line-height: 1;
+  padding-bottom: 0.65rem;
+  margin-bottom: 1.65rem;
+  letter-spacing: 0;
+}
+
+.content-section h2 span {
+  color: var(--muted-text);
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
 }
 
 .content-section h3 {
-  font-size: 1.25rem;
-  color: var(--text-color); /* Use main text color for H3 */
-  margin-bottom: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 1.18rem;
+  font-weight: 500;
+  color: var(--text-color);
+  margin: 2rem 0 0.45rem;
+  line-height: 1.35;
 }
 
-/* Style for the job subheading (Company | Date) */
 .job-subheading {
-  font-style: italic;
   font-size: 0.95rem;
-  color: var(--secondary-text); /* Use secondary color */
-  margin-top: -6px; /* Pulls it up slightly under the H3 */
+  color: var(--secondary-text);
+  margin-top: -6px;
   margin-bottom: 1rem;
 }
 
-/* Style for the skill categories */
 .content-section h4 {
-  font-size: 1.15rem;
-  color: var(--text-color); /* Use main text color */
-  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-color);
+  font-weight: 500;
+  letter-spacing: 0.08em;
   margin-bottom: 0.75rem;
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
+  text-transform: uppercase;
 }
 
 .content-section p,
 .content-section ul {
   font-size: 1rem;
-  color: var(--text-color); /* Main text color for readability */
+  color: var(--text-color);
   margin-bottom: 1.5rem;
 }
 
 .content-section ul {
-  list-style-position: inside;
+  padding-left: 1.25rem;
+}
+
+.content-section li {
+  margin-bottom: 0.35rem;
+}
+
+.tag-list,
+.interest-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  list-style: none;
   padding-left: 0;
+}
+
+.tag-list li,
+.interest-list li {
+  border: 1px solid var(--border-color);
+  border-radius: 999px;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0.38rem 0.78rem;
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease,
+    background-color 180ms ease;
+}
+
+.tag-list li:hover,
+.interest-list li:hover {
+  background-color: var(--white);
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
 }
 
 .publication-list {
@@ -134,9 +249,17 @@ a.button .fab {
 }
 
 .publication-list li {
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  padding: 0 0 1.1rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid var(--soft-border);
+  transition:
+    border-color 180ms ease,
+    transform 180ms ease;
+}
+
+.publication-list li:hover {
+  border-color: var(--border-color);
+  transform: translateX(4px);
 }
 
 .publication-list li:last-child {
@@ -145,46 +268,58 @@ a.button .fab {
 
 .publication-authors {
   display: block;
+  margin-top: 0.2rem;
 }
 
 .publication-title {
   display: block;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.publication-authors strong {
+  font-weight: 500;
 }
 
 .publication-venue {
   display: block;
   color: var(--secondary-text);
+  margin-top: 0.15rem;
 }
 
 .cat-photos-grid {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  flex-wrap: wrap;
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
 
 .cat-photo-item {
-  flex: 1 1 30%;
-  max-width: 32%;
-  height: auto;
-
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  filter: grayscale(8%);
+  transition:
+    box-shadow 220ms ease,
+    filter 220ms ease,
+    transform 220ms ease;
 }
 
-@media (max-width: 600px) {
-  .cat-photos-grid {
-    justify-content: center;
-  }
+.cat-photo-item:hover {
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+  filter: grayscale(0);
+  transform: translateY(-3px);
+}
 
-  .cat-photo-item {
-    flex: 1 1 90%;
-    max-width: 90%;
-  }
+::selection {
+  background: var(--primary-color);
+  color: var(--white);
 }
 
 footer {
@@ -196,10 +331,69 @@ footer {
 .lab-link {
   text-decoration: none;
   color: var(--text-color);
-  transition: all 0.3s;
+  border-bottom: 1px solid var(--border-color);
+  transition:
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 .lab-link:hover {
   color: var(--primary-color);
-  text-decoration: underline;
+  border-color: var(--primary-color);
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 48px 18px 32px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 1.2rem;
+  }
+
+  .button-container {
+    align-items: center;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  a.button {
+    min-width: 190px;
+    width: auto;
+  }
+
+  .cat-photos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .content-section {
+    margin-top: 4rem;
+  }
+
+  .content-section h2 {
+    gap: 0.7rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation: none !important;
+    transition: none !important;
+  }
 }
