@@ -8,6 +8,7 @@
   --border-color: #d8d8d8;
   --soft-border: #eaeaea;
   --white: #ffffff;
+  --accent-gradient: linear-gradient(90deg, #090909, #8a6f78, #090909);
   --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB",
     "Microsoft JhengHei", sans-serif;
   --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
@@ -42,7 +43,7 @@ body {
 }
 
 .scroll-progress::after {
-  background: var(--primary-color);
+  background: var(--accent-gradient);
   content: "";
   height: 100%;
   left: 0;
@@ -115,6 +116,10 @@ h1 {
   white-space: nowrap;
 }
 
+.hero h1 {
+  animation: hero-reveal 620ms ease-out 160ms both;
+}
+
 .subtitle {
   color: var(--primary-color);
   font-size: clamp(1.05rem, 2.2vw, 1.35rem);
@@ -139,22 +144,26 @@ h1 {
   font-size: 0.98rem;
 }
 
-.button-container {
+.hero-actions {
+  align-items: center;
   display: flex;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 1.15rem;
   margin-bottom: 3.5rem;
   flex-wrap: wrap;
 }
 
 a.button {
+  --button-x: 50%;
+  --button-y: 50%;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 46px;
-  padding: 0.8rem 1.5rem;
+  min-height: 38px;
+  min-width: 104px;
+  padding: 0.52rem 0.95rem;
   text-decoration: none;
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   transition:
     background-color 180ms ease,
@@ -162,26 +171,53 @@ a.button {
     color 180ms ease,
     box-shadow 180ms ease,
     transform 180ms ease;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
 }
 
-a.button-primary {
-  color: var(--white);
-  background-color: var(--primary-color);
+a.button::before {
+  background: radial-gradient(
+    circle at var(--button-x) var(--button-y),
+    rgba(255, 255, 255, 0.26),
+    rgba(138, 111, 120, 0.3) 34%,
+    rgba(255, 255, 255, 0.08) 58%,
+    transparent 82%
+  );
+  content: "";
+  inset: 0;
+  opacity: 0;
+  position: absolute;
+  transform: scale(1);
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease;
+  z-index: 0;
 }
 
-a.button-secondary {
-  color: var(--white);
-  background-color: var(--primary-color);
+a.button > * {
+  position: relative;
+  z-index: 1;
+}
+
+a.button {
+  color: var(--primary-color);
+  background-color: var(--soft-border);
 }
 
 a.button:hover {
   background-color: var(--primary-hover);
   border-color: var(--primary-hover);
   color: var(--white);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+a.button:hover::before {
+  opacity: 0.95;
+  transform: scale(1.08);
 }
 
 a:focus-visible {
@@ -192,6 +228,38 @@ a:focus-visible {
 a.button .fas,
 a.button .fab {
   margin-right: 8px;
+}
+
+.hero-link {
+  color: var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  font-size: 0.94rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.hero-link i {
+  color: var(--secondary-text);
+  font-size: 0.9rem;
+  transition: color 180ms ease;
+}
+
+.hero-link::after {
+  background: var(--accent-gradient);
+  content: "";
+  height: 1px;
+  width: 0;
+  transition: width 180ms ease;
+}
+
+.hero-link:hover i {
+  color: var(--primary-color);
+}
+
+.hero-link:hover::after {
+  width: 18px;
 }
 
 .content-section {
@@ -315,10 +383,10 @@ html.js .content-section.is-visible h2::after {
 .tag-list li,
 .interest-list li {
   border: 1px solid var(--border-color);
-  border-radius: 999px;
+  border-radius: 6px;
   color: var(--text-color);
   margin: 0;
-  padding: 0.38rem 0.78rem;
+  padding: 0.42rem 0.68rem;
   transition:
     border-color 180ms ease,
     transform 180ms ease,
@@ -413,7 +481,7 @@ html.js .content-section.is-visible h2::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 0;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   filter: grayscale(8%);
   transition:
@@ -442,7 +510,7 @@ footer {
 .lab-link {
   text-decoration: none;
   color: var(--text-color);
-  background-image: linear-gradient(var(--primary-color), var(--primary-color));
+  background-image: var(--accent-gradient);
   background-position: 0 100%;
   background-repeat: no-repeat;
   background-size: 0 1px;
@@ -478,14 +546,12 @@ footer {
     padding-bottom: 1.2rem;
   }
 
-  .button-container {
+  .hero-actions {
     align-items: center;
-    flex-direction: column;
-    gap: 0.65rem;
+    gap: 0.95rem;
   }
 
   a.button {
-    min-width: 190px;
     width: auto;
   }
 
@@ -519,4 +585,5 @@ footer {
   html.js .content-section h2::after {
     transform: scaleX(1);
   }
+
 }

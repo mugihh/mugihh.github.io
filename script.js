@@ -1,6 +1,7 @@
 document.documentElement.classList.add("js");
 
 const sections = document.querySelectorAll(".content-section");
+const buttons = document.querySelectorAll(".button");
 const prefersReducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)",
 ).matches;
@@ -60,4 +61,15 @@ const activeObserver = new IntersectionObserver(
 
 sections.forEach((section) => {
   activeObserver.observe(section);
+});
+
+buttons.forEach((button) => {
+  button.addEventListener("pointermove", (event) => {
+    const rect = button.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+
+    button.style.setProperty("--button-x", `${x}px`);
+    button.style.setProperty("--button-y", `${y}px`);
+  });
 });
