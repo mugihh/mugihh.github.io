@@ -128,6 +128,35 @@ a.button .fab {
   padding-left: 0;
 }
 
+.publication-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.publication-list li {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.publication-list li:last-child {
+  border-bottom: 0;
+}
+
+.publication-authors {
+  display: block;
+}
+
+.publication-title {
+  display: block;
+  font-weight: 600;
+}
+
+.publication-venue {
+  display: block;
+  color: var(--secondary-text);
+}
+
 .cat-photos-grid {
   display: flex;
   justify-content: space-between;
