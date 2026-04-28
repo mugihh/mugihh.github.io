@@ -31,12 +31,33 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.scroll-progress {
+  background: var(--soft-border);
+  height: 2px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.scroll-progress::after {
+  background: var(--primary-color);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+  width: 100%;
+}
+
 .container {
   max-width: 760px;
   margin: 0 auto;
   padding: 68px 22px 44px;
   text-align: center;
-  animation: page-enter 650ms ease-out both;
 }
 
 .hero {
@@ -44,6 +65,34 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.hero > * {
+  animation: hero-reveal 620ms ease-out both;
+}
+
+.hero > *:nth-child(1) {
+  animation-delay: 80ms;
+}
+
+.hero > *:nth-child(2) {
+  animation-delay: 160ms;
+}
+
+.hero > *:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+.hero > *:nth-child(4) {
+  animation-delay: 320ms;
+}
+
+.hero > *:nth-child(5) {
+  animation-delay: 400ms;
+}
+
+.hero > *:nth-child(6) {
+  animation-delay: 480ms;
 }
 
 .eyebrow {
@@ -150,10 +199,23 @@ a.button .fab {
   margin-top: 5.2rem;
 }
 
+html.js .content-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 520ms ease,
+    transform 520ms ease;
+}
+
+html.js .content-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .content-section h2 {
   align-items: baseline;
   color: var(--primary-color);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 0;
   display: flex;
   font-family: var(--font-serif);
   font-size: clamp(2rem, 5vw, 3rem);
@@ -163,6 +225,28 @@ a.button .fab {
   padding-bottom: 0.65rem;
   margin-bottom: 1.65rem;
   letter-spacing: 0;
+  position: relative;
+}
+
+.content-section h2::after {
+  background: var(--border-color);
+  bottom: 0;
+  content: "";
+  height: 1px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(1);
+  transform-origin: left;
+  width: 100%;
+}
+
+html.js .content-section h2::after {
+  transform: scaleX(0);
+  transition: transform 680ms ease;
+}
+
+html.js .content-section.is-visible h2::after {
+  transform: scaleX(1);
 }
 
 .content-section h2 span {
@@ -171,6 +255,11 @@ a.button .fab {
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.08em;
+  transition: color 240ms ease;
+}
+
+.content-section.is-active h2 span {
+  color: var(--primary-color);
 }
 
 .content-section h3 {
@@ -252,14 +341,36 @@ a.button .fab {
   padding: 0 0 1.1rem;
   margin-bottom: 1.1rem;
   border-bottom: 1px solid var(--soft-border);
+  position: relative;
   transition:
     border-color 180ms ease,
     transform 180ms ease;
 }
 
+.publication-list li::before {
+  background: var(--primary-color);
+  content: "";
+  height: calc(100% - 1.1rem);
+  left: -14px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transform: scaleY(0.4);
+  transform-origin: top;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+  width: 1px;
+}
+
 .publication-list li:hover {
   border-color: var(--border-color);
   transform: translateX(4px);
+}
+
+.publication-list li:hover::before {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .publication-list li:last-child {
@@ -331,21 +442,24 @@ footer {
 .lab-link {
   text-decoration: none;
   color: var(--text-color);
-  border-bottom: 1px solid var(--border-color);
+  background-image: linear-gradient(var(--primary-color), var(--primary-color));
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
   transition:
-    border-color 180ms ease,
+    background-size 180ms ease,
     color 180ms ease;
 }
 
 .lab-link:hover {
   color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-size: 100% 1px;
 }
 
-@keyframes page-enter {
+@keyframes hero-reveal {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(14px);
   }
 
   to {
@@ -395,5 +509,14 @@ footer {
     scroll-behavior: auto !important;
     animation: none !important;
     transition: none !important;
+  }
+
+  html.js .content-section {
+    opacity: 1;
+    transform: none;
+  }
+
+  html.js .content-section h2::after {
+    transform: scaleX(1);
   }
 }
