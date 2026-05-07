@@ -9,9 +9,9 @@
   --soft-border: #eaeaea;
   --white: #ffffff;
   --accent-gradient: linear-gradient(90deg, #090909, #8a6f78, #090909);
-  --font-sans: "Inter", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB",
+  --font-sans: "Raleway", "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB",
     "Microsoft JhengHei", sans-serif;
-  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-serif: "Instrument Serif", Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -24,6 +24,7 @@ html {
 
 body {
   font-family: var(--font-sans);
+  font-weight: 400;
   margin: 0;
   padding: 0;
   background-color: var(--bg-color);
