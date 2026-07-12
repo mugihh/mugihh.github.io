@@ -11,7 +11,7 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Raleway:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Raleway:wght@400;500;600;700;800&amp;display=swap"
     />
 
     <link rel="stylesheet" href="style.css" />
@@ -22,8 +22,11 @@
       <header class="hero">
         <p class="eyebrow">Portfolio / Research / CV</p>
         <h1>Chen-Yu Hu</h1>
-        <p class="subtitle">NLP · Dialogue Systems · Human-Robot Interaction</p>
-        <p class="hero-summary">MSCS student at Institute of Science Tokyo</p>
+        <p class="subtitle">NLP · Spoken Dialogue · Multimodal Interaction</p>
+        <p class="hero-summary">
+          M.S. Computer Science student building dialogue systems, evaluation
+          pipelines, and practical software tools.
+        </p>
 
         <div class="email-contact">
           <p>hu.c.873d [at] m.isct.ac.jp</p>
@@ -53,10 +56,11 @@
       <div class="content-section">
         <h2><span>01</span>About Me</h2>
         <p>
-          I'm a Computer Science graduate from National Tsing Hua University and
-          currently a master's student at Institute of Science Tokyo. My focus
-          is on Natural Language Processing (NLP), dialogue systems, and
-          human-robot interaction.
+          I'm a master's student in Computer Science at Institute of Science
+          Tokyo. My research focuses on natural language processing, spoken
+          dialogue systems, and grounding references in mathematical visual
+          workspaces. I also enjoy turning repetitive workflows into practical
+          software tools.
         </p>
         <p>I am currently seeking new grad opportunities for 2027.</p>
       </div>
@@ -77,7 +81,8 @@
               >Intelligent Robot Dialogue Laboratory (Yoshino Lab.)
             </a>
           </li>
-          <li>Research Assistant</li>
+          <li>Research Assistant | Jul 2025 - Present</li>
+          <li>Research: Multimodal Mathematical Reference Resolution</li>
         </ul>
 
         <h3>Tokyo Institute of Technology</h3>
@@ -106,6 +111,16 @@
 
       <div class="content-section">
         <h2><span>03</span>Research Output</h2>
+
+        <h3>Current Research</h3>
+        <p>
+          I study multimodal reference resolution in mathematical
+          communication: how expressions such as “this term” or “that
+          equation” can be grounded to mathematical objects in a dynamic visual
+          workspace. My current work covers data and annotation design,
+          candidate ranking, and multimodal model evaluation using
+          instructional mathematics videos as scalable proxy data.
+        </p>
 
         <h3>Conference Presentations</h3>
         <div class="job-subheading">Non-peer-reviewed</div>
@@ -164,10 +179,10 @@
           NexaScience (Tokyo, Japan) | Sep 2025 - Dec 2025
         </div>
         <p>
-          Developing a Spoken Dialogue System pipeline by integrating Automatic
-          Speech Recognition outputs with LLMs. Focusing on optimizing data
-          processing workflows and handling modality alignment challenges using
-          PyTorch.
+          Built a Python/PyTorch pipeline connecting Automatic Speech
+          Recognition, LLM-based post-editing, dialogue state tracking, and
+          automatic evaluation. Investigated how ASR errors, particularly
+          named-entity errors, propagate to downstream task performance.
         </p>
 
         <h3>Software Engineer Intern</h3>
@@ -175,22 +190,141 @@
           Dykoo (Taichung, Taiwan) | Jan 2024 - Apr 2024
         </div>
         <p>
-          During my internship at Dykoo, I developed order-splitting algorithms
-          using Python (Pandas) to enhance order picking and inventory tracking
-          efficiency. I also built data processing workflows between Excel and
-          Firebase and collaborated with the web team to connect backend logic
-          to the SvelteKit and Google Cloud-based application.
+          Developed order-splitting and data-processing workflows using Python,
+          Pandas, Excel, Firebase, and Google Cloud Functions, and collaborated
+          on the SvelteKit application. The tool turned an order-organization
+          workflow that previously required roughly half a day of manual work
+          into a brief automated run-and-review process for a company user.
         </p>
       </div>
 
       <div class="content-section">
-        <h2><span>05</span>Skills</h2>
+        <h2><span>05</span>Selected Projects</h2>
 
-        <h4>Programming & Tools</h4>
+        <article class="project-card">
+          <div class="project-heading">
+            <h3>RoleLens</h3>
+            <a
+              href="https://github.com/mugihh/RoleLens"
+              target="_blank"
+              class="project-link"
+              aria-label="View RoleLens on GitHub"
+            >
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+          <p>
+            A local-first and private-by-default job radar designed for
+            collaboration with coding agents. It keeps personal career data on
+            the user's machine while agents review structured job queues and
+            the CLI handles repeatable ingestion, validation, ranking, and
+            static reporting.
+          </p>
+          <ul class="tag-list compact-tags">
+            <li>Python</li>
+            <li>SQLite</li>
+            <li>CLI</li>
+            <li>Human–Agent Collaboration</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-heading">
+            <h3>LaTeX EPUBifier</h3>
+            <a
+              href="https://github.com/mugihh/latex-epubifier"
+              target="_blank"
+              class="project-link"
+              aria-label="View LaTeX EPUBifier on GitHub"
+            >
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+          <p>
+            A Python CLI for converting academic LaTeX papers into
+            e-reader-friendly XHTML and EPUB, including math-to-SVG rendering,
+            asset packaging, debug outputs, and structural validation.
+          </p>
+          <ul class="tag-list compact-tags">
+            <li>Python</li>
+            <li>EPUB / XHTML</li>
+            <li>Validation</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-heading">
+            <h3>Facial Features Transferring</h3>
+            <a
+              href="https://github.com/Ihsin-Chen/pixel2style2pixel"
+              target="_blank"
+              class="project-link"
+              aria-label="View Facial Features Transferring on GitHub"
+            >
+              <i class="fab fa-github"></i> Repository
+            </a>
+          </div>
+          <p>
+            A senior-project facial feature transfer pipeline using StyleGAN2
+            and pixel2Style2pixel. I worked on system architecture, geometric
+            warping, color correction, and MediaPipe-based face alignment. The
+            project was a finalist in the NTHU Senior Project Competition.
+          </p>
+          <ul class="tag-list compact-tags">
+            <li>Python</li>
+            <li>OpenCV</li>
+            <li>StyleGAN2</li>
+            <li>MediaPipe</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="content-section">
+        <h2><span>06</span>Honors &amp; Scholarships</h2>
+        <ul class="honors-list">
+          <li>
+            <strong>Watanuki International Scholarship Foundation Scholar</strong>
+            <span>Apr 2026 - Apr 2027 · Selected through university recommendation</span>
+          </li>
+          <li>
+            <strong>JASSO Scholarship</strong>
+            <span>Oct 2022 - Aug 2023</span>
+          </li>
+          <li>
+            <strong>Exchange Student Scholarship for Academic Performance</strong>
+            <span>Oct 2022 - Aug 2023</span>
+          </li>
+          <li>
+            <strong>Academic Excellence Award, NTHU</strong>
+            <span>Top 5% · Spring 2022</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2><span>07</span>Skills</h2>
+
+        <h4>Machine Learning &amp; NLP</h4>
+        <ul class="tag-list">
+          <li>PyTorch</li>
+          <li>TensorFlow</li>
+          <li>LLMs</li>
+          <li>ASR</li>
+          <li>Dialogue State Tracking</li>
+          <li>OpenCV</li>
+        </ul>
+
+        <h4>Software &amp; Tools</h4>
         <ul class="tag-list">
           <li>Python</li>
           <li>C / C++</li>
-          <li>TensorFlow / PyTorch</li>
+          <li>TypeScript</li>
+          <li>SQL</li>
+          <li>GCP</li>
+          <li>Firebase</li>
+          <li>Git</li>
+          <li>LaTeX</li>
+          <li>AI-assisted Development</li>
         </ul>
 
         <h4>Languages</h4>
@@ -203,11 +337,11 @@
       </div>
 
       <div class="content-section">
-        <h2><span>06</span>Interests</h2>
+        <h2><span>08</span>Interests</h2>
         <ul class="interest-list">
           <li>Workout 🏋️</li>
-          <li>Crochet & Knitting 🧶</li>
-          <li>Cafè Hopping ☕️</li>
+          <li>Crochet &amp; Knitting 🧶</li>
+          <li>Café Hopping ☕️</li>
           <li>Reading 📖</li>
           <li>Self Nail 💅</li>
           <li>Vlogging / Plogging 📷</li>

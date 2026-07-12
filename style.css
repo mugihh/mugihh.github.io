@@ -469,6 +469,82 @@ html.js .content-section.is-visible h2::after {
   margin-top: 0.15rem;
 }
 
+.project-card {
+  border-bottom: 1px solid var(--soft-border);
+  padding: 0 0 1.7rem;
+  margin-bottom: 1.7rem;
+}
+
+.project-card:last-child {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+
+.project-card p {
+  margin-bottom: 1rem;
+}
+
+.project-heading {
+  align-items: baseline;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.project-heading h3 {
+  margin-top: 0;
+}
+
+.project-link {
+  color: var(--secondary-text);
+  flex: 0 0 auto;
+  font-size: 0.86rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.project-link:hover {
+  color: var(--primary-color);
+}
+
+.compact-tags {
+  margin-bottom: 0 !important;
+}
+
+.compact-tags li {
+  color: var(--secondary-text);
+  font-size: 0.82rem;
+  padding: 0.32rem 0.55rem;
+}
+
+.honors-list {
+  list-style: none;
+  padding-left: 0 !important;
+}
+
+.honors-list li {
+  border-bottom: 1px solid var(--soft-border);
+  display: flex;
+  gap: 0.8rem;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0.9rem 0;
+}
+
+.honors-list li:last-child {
+  border-bottom: 0;
+}
+
+.honors-list strong {
+  font-weight: 500;
+}
+
+.honors-list span {
+  color: var(--secondary-text);
+  font-size: 0.92rem;
+  text-align: right;
+}
+
 .cat-photos-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -566,6 +642,17 @@ footer {
 
   .content-section h2 {
     gap: 0.7rem;
+  }
+
+  .project-heading,
+  .honors-list li {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .honors-list span {
+    text-align: left;
   }
 }
 
